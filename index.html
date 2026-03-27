@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cost-input{
+      font: size 15px;
+      /* padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px; */
+      /* isse acha sirf padding karoge to 4 oo side ho jaiga */
+      padding: 10px;
+    }
+    .calculate-button{
+      background-color: green;
+      color:white;
+      border: none;
+      font:15px;
+      padding :11px 15px;
+      /* phli padding top-bottom doosri padding up-down */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <p>Amazon shipping calculator</p>
+  <p>Orders under $40=+10 shipping</p>
+  <p>orders over $40=FREE shipping</p>
+
+  <input placeholder="cost of order" class="js-cost-input cost-input" onkeydown="console.log(event.key);
+  handleonkeydown(event); 
+  ">
+   <button class="calculate-button";onclick="calculatetotal()">calculate</button>
+
+  <p class="js-total-cost"></p>
+
+  <script>
+     
+    function handleonkeydown(event){ 
+      if(event.key==='Enter'){
+    calculatetotal();
+      }
+    }
+
+    function calculatetotal(){
+     const inputelement=document.querySelector('.js-cost-input');
+     let cost=Number(inputelement.value);
+
+     if(cost<40){
+      cost=cost+10;
+    }
+    document.querySelector('.js-total-cost').innerHTML=`$${cost}`;
+  }
+  </script>
+</body>
+</html>
